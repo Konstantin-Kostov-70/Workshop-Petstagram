@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+   {% block page_content %}
+    <!-- Starts Delete Pet Section -->
+    <div class="edit-delete edit-photo">
+        <h2>Delete pet</h2>
+        <!-- Starts Delete Pet Form -->
+        <form action="{% url 'pet_delete' 'username' pet.slug %}" method="post">
+            <p>
+                <label for="pet-name">Pet name: </label>
+                {{ form.name }}
+            </p>
+            <p>
+                <label for="pet-date">Date of birth: </label>
+                {{ form.date_of_birth }}
+            </p>
+            <p>
+                <label for="pet-image">Link to image: </label>
+                {{ form.personal_photo }}
+            </p>
+            {% csrf_token %}
+            <!-- Delete Pet Button -->
+            <button class="delete-btn" type="submit">Delete</button>
+            <!-- Go Back Button -->
+            <a class="btn btn-primary" href="javascript:history.back()">
+                <button class="edit-btn" type="button">Go back</button>
+            </a>
+        </form>
+        <!-- End Delete Pet Form -->
+    </div>
+    <!-- End Delete Pet Section -->
+    {% endblock %}

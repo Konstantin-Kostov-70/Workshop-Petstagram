@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+   {% block page_content %}
+
+    <!-- Start Add Pet Section-->
+    <div class="edit-delete edit-photo">
+        <h2>Add pet</h2>
+
+        <!-- Start Add Pet Form -->
+        <form action="{% url 'pet_add' %}" method="post">
+
+
+            <p>
+                <label for="pet-name">Pet name: </label>
+{#                <input type="text" placeholder="Pet name">#}
+                {{ form.name }}
+            </p>
+            <p>
+                <label for="pet-date">Date of birth: </label>
+{#                <input type="date">#}
+                {{ form.date_of_birth }}
+            </p>
+            <p>
+                <label for="pet-image">Link to image: </label>
+{#                <input type="text" placeholder="Link to image">#}
+                {{ form.personal_photo }}
+            </p>
+
+            <!-- Add Pet Button -->
+            {% csrf_token %}
+            <button class="add-btn" type="submit">Add Pet</button>
+        </form>
+        <!-- End Add Pet Form -->
+
+    </div>
+    <!-- End Add Pet Section -->
+
+    {% endblock %}
